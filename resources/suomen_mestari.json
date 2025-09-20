@@ -3598,7 +3598,7 @@
         "strange"
     ],
     "paikkakunta": [
-        "localilty",
+        "locality",
         "municipality"
     ],
     "paikkavaraus": [
@@ -3800,7 +3800,7 @@
         "mite",
         "tick"
     ],
-    "puolivälissä": [
+    "puoliväli": [
         "halfway"
     ],
     "purjehdus": [
