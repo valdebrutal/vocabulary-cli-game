@@ -9,12 +9,14 @@ validateWordMapAndWeights <- function(wordsMap, wordWeights) {
       length(wordWeights)
     ))
   }
-  
+
   # Check if names match after sorting
   if (!all(names(wordsMap) == names(wordWeights))) {
-    stop("Word names in wordsMap and wordWeights don't match after sorting. This should not happen.")
+    stop(
+      "Word names in wordsMap and wordWeights don't match after sorting. This should not happen."
+    )
   }
-  
+
   invisible(TRUE)
 }
 
@@ -26,7 +28,7 @@ sortWordMapAndWeights <- function(wordsMap, wordWeights) {
       wordWeights = wordWeights
     ))
   }
-  
+
   list(
     wordsMap = wordsMap[order(names(wordsMap))],
     wordWeights = wordWeights[order(names(wordWeights))]

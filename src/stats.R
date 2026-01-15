@@ -16,16 +16,21 @@ stats <- list2env(
             stats$rightAnswers / stats$totalAnswers
           ),
           3
-        ) * 100,
+        ) *
+          100,
         length(stats$wordWeights)
       )
       strugglingWords <- stats$wordWeights[stats$wordWeights > 1]
       if (length(strugglingWords) > 0) {
         top5 <-
-          unlist(strugglingWords[order(unlist(strugglingWords), decreasing = T)][1:5]) # unlist drops nulls
+          unlist(strugglingWords[order(
+            unlist(strugglingWords),
+            decreasing = T
+          )][1:5]) # unlist drops nulls
         top5WithMistakes <-
-          sapply(names(top5), function(word)
-            paste0(word, " (", top5[[word]], ")"))
+          sapply(names(top5), function(word) {
+            paste0(word, " (", top5[[word]], ")")
+          })
         top5Message <-
           paste0(
             "The top 5 words you're struggling the most with are (cumulative mistakes in parenthesis): ",
@@ -39,7 +44,7 @@ stats <- list2env(
       stats$wrongAnswers <- stats$wrongAnswers + 1
       stats$wordWeights[[word]] <- stats$wordWeights[[word]] + 1
     },
-    registerCorrectAnswer =  function(word) {
+    registerCorrectAnswer = function(word) {
       stats$rightAnswers <- stats$rightAnswers + 1
       stats$wordWeights[[word]] <-
         max(stats$wordWeights[[word]] - 1, 1)

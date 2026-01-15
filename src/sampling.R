@@ -1,4 +1,3 @@
-
 sampleWord <- function(wordsMap, wordWeights) {
   names(sample(wordsMap, size = 1, prob = unlist(wordWeights)))
 }

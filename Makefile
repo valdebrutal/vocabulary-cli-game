@@ -17,3 +17,7 @@ run_reverse:
 .PHONY: test
 test:
 	docker run --rm ${CONTAINER_NAME} Rscript tests/testthat.R
+
+.PHONY: format
+format:
+	~/.local/bin/air format main.R src/ tests/

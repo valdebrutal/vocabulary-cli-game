@@ -45,3 +45,24 @@ make build && make test
 ```sh
 Rscript tests/testthat.R
 ```
+
+## Code Formatting
+
+This project uses [Air](https://posit-dev.github.io/air/).
+
+### Install Air
+
+```sh
+curl -LsSf https://github.com/posit-dev/air/releases/latest/download/air-installer.sh | sh
+```
+
+### Format code
+
+```sh
+make format
+```
+
+Or directly:
+```sh
+~/.local/bin/air format main.R src/ tests/
+```

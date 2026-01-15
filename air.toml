@@ -1,0 +1,5 @@
+# https://posit-dev.github.io/air/configuration.html
+
+[format]
+line-width = 120
+indent-width = 2

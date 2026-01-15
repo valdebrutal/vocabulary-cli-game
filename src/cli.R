@@ -20,8 +20,15 @@ argParser <- function() {
       hide.opts = T
     )
   argParser <-
-    add_argument(argParser, "wordlist", help = "Name of the file containing the corpus of words to play with.")
-  add_argument(argParser, "--reverse",
-               help = "Reverse the corpus direction of the translation. For instance, if the keys are finnish words and the translations are english, this flag will make the keys english and the translations finnish.",
-               flag = TRUE)
+    add_argument(
+      argParser,
+      "wordlist",
+      help = "Name of the file containing the corpus of words to play with."
+    )
+  add_argument(
+    argParser,
+    "--reverse",
+    help = "Reverse the corpus direction of the translation. For instance, if the keys are finnish words and the translations are english, this flag will make the keys english and the translations finnish.",
+    flag = TRUE
+  )
 }

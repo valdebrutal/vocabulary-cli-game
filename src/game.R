@@ -41,7 +41,7 @@ checkAnswer <- function(userAnswer, correctAnswers) {
   if (length(userAnswer) == 0) {
     return(list(correct = FALSE, skipped = TRUE))
   }
-  
+
   correct <- userAnswer %in% correctAnswers
   return(list(correct = correct, skipped = FALSE))
 }
@@ -65,9 +65,9 @@ provideFeedback <- function(result, userAnswer, correctAnswers) {
 processAnswer <- function(userAnswer, word, wordsMap, stats) {
   correctAnswers <- wordsMap[[word]]
   result <- checkAnswer(userAnswer, correctAnswers)
-  
+
   stats$recordAnswer(word, result$correct)
   provideFeedback(result, userAnswer, correctAnswers)
-  
+
   return(result$correct)
 }
