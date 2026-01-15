@@ -29,7 +29,7 @@ stats <- list2env(
           )][1:5]) # unlist drops nulls
         top5WithMistakes <-
           sapply(names(top5), function(word) {
-            paste0(word, " (", top5[[word]], ")")
+            paste0(word, " (", top5[[word]] - 1, ")") # -1 because the weights start off at 1
           })
         top5Message <-
           paste0(

@@ -130,7 +130,7 @@ test_that("formatStats includes total answers", {
 
   output <- stats$formatStats()
 
-  expect_match(output, "42")
+  expect_match(output, "Total Answers: 42")
 })
 
 test_that("formatStats includes right answers", {
@@ -140,7 +140,7 @@ test_that("formatStats includes right answers", {
 
   output <- stats$formatStats()
 
-  expect_match(output, "15")
+  expect_match(output, "Right Answers: 15")
 })
 
 test_that("formatStats includes percentage correct", {
@@ -151,7 +151,7 @@ test_that("formatStats includes percentage correct", {
 
   output <- stats$formatStats()
 
-  expect_match(output, "70")
+  expect_match(output, "% Correct: 70\\.0%")
 })
 
 test_that("formatStats handles 0 total answers", {
@@ -161,8 +161,8 @@ test_that("formatStats handles 0 total answers", {
 
   output <- stats$formatStats()
 
-  # Should show 0% not NaN
-  expect_match(output, "0")
+  # Should show 0.0% not NaN
+  expect_match(output, "% Correct: 0\\.0%")
   expect_false(grepl("NaN", output))
 })
 
@@ -173,7 +173,7 @@ test_that("formatStats includes corpus size", {
 
   output <- stats$formatStats()
 
-  expect_match(output, "3")
+  expect_match(output, "Corpus size: 3")
 })
 
 test_that("formatStats includes top struggling words when weights > 1", {
@@ -199,6 +199,25 @@ test_that("formatStats doesn't include struggling words when all weights = 1", {
   output <- stats$formatStats()
 
   expect_false(grepl("struggling", output))
+})
+
+test_that("formatStats displays mistake count (weight - 1) not raw weight", {
+  stats$totalAnswers <- 10
+  stats$rightAnswers <- 5
+  stats$wordWeights <- list(
+    "alpha" = 4, # 3 mistakes
+    "beta" = 2, # 1 mistake
+    "gamma" = 1 # 0 mistakes (should not appear)
+  )
+
+  output <- stats$formatStats()
+
+  # Should show "alpha (3)" not "alpha (4)"
+  expect_match(output, "alpha \\(3\\)")
+  # Should show "beta (1)" not "beta (2)"
+  expect_match(output, "beta \\(1\\)")
+  # Should not include gamma since its weight is 1 (0 mistakes)
+  expect_false(grepl("gamma", output))
 })
 
 test_that("weight increases then decreases correctly", {
