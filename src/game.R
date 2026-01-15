@@ -1,4 +1,3 @@
-# Game session management functions
 
 promptForTranslation <- function(word, probability) {
   message(sprintf(
@@ -24,14 +23,14 @@ getUserInput <- function(stdIn) {
 }
 
 handleSummaryCommand <- function(stats) {
-  message(stats$formatStats())
+  message(format(stats))
   return(TRUE)
 }
 
 handleExitCommand <- function(stats, cacheFile) {
   message("Quitting! Remember: Practice makes perfect.")
   message("Performance:")
-  message(stats$formatStats())
+  message(format(stats))
   saveRDS(stats$wordWeights, file = cacheFile)
   closeAllConnections()
   quit(save = "no")
@@ -66,8 +65,8 @@ processAnswer <- function(userAnswer, word, wordsMap, stats) {
   correctAnswers <- wordsMap[[word]]
   result <- checkAnswer(userAnswer, correctAnswers)
 
-  stats$recordAnswer(word, result$correct)
+  stats <- record_answer(stats, word, result$correct)
   provideFeedback(result, userAnswer, correctAnswers)
 
-  return(result$correct)
+  list(correct = result$correct, stats = stats)
 }

@@ -25,6 +25,8 @@ serializedWordWeightsFile <- file.path(".cache", cacheFile)
 if (parsedArgs$reverse) {
   wordsMap <- reverseWordMap(wordsMap)
 }
+
+stats <- new_stats()
 loadWordWeights(serializedWordWeightsFile, wordsMap, stats)
 
 sorted <- sortWordMapAndWeights(wordsMap, stats$wordWeights)
@@ -50,5 +52,6 @@ while (TRUE) {
     handleExitCommand(stats, serializedWordWeightsFile)
   }
 
-  processAnswer(userAnswer, wordToBeAsked, wordsMap, stats)
+  result <- processAnswer(userAnswer, wordToBeAsked, wordsMap, stats)
+  stats <- result$stats
 }
