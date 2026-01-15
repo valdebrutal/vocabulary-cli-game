@@ -13,3 +13,7 @@ run:
 .PHONY: run_reverse
 run_reverse:
 	docker run --rm -ti -v ${CURDIR}/.cache:/app/.cache ${CONTAINER_NAME} Rscript main.R ${wordlist} --reverse
+
+.PHONY: test
+test:
+	docker run --rm ${CONTAINER_NAME} Rscript tests/testthat.R

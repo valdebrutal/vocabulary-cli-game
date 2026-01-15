@@ -5,6 +5,11 @@ loadWordWeights <-
     if (file.exists(serializedWordWeightsFile)) {
       message(paste0("Loading cache at: ", serializedWordWeightsFile))
       deserializedWordWeights <- readRDS(serializedWordWeightsFile)
+      
+      # Remove stale weights for words that no longer exist in wordMap
+      deserializedWordWeights <-
+        deserializedWordWeights[names(deserializedWordWeights) %in% names(wordMap)]
+      
       wordsNotInCache <-
         names(wordMap)[!names(wordMap) %in% names(deserializedWordWeights)]
       stats$wordWeights <-

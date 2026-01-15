@@ -33,3 +33,15 @@ To exit the program, type and enter `exit` when prompted for a translation. You'
 ### Adding new words
 
 Just add the words on the right json file under `resources`. The translations are in an array in order to make available more than one single translation per word.
+
+## Running Tests
+
+### Using Make
+```sh
+make build && make test
+```
+
+### Standard testthat entry point
+```sh
+Rscript tests/testthat.R
+```

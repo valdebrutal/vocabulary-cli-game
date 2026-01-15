@@ -560,7 +560,7 @@
    ],
    "vippi":[
       "loan",
-      "accomodation"
+      "accommodation"
    ],
    "olemus":[
       "self"
@@ -683,7 +683,7 @@
       "drawer"
    ],
    "sarja":[
-      "serie",
+      "series",
       "succession"
    ],
    "majatalo":[
@@ -1369,7 +1369,7 @@
       "comeback"
    ],
    "matkatavara":[
-      "lugagge"
+      "luggage"
    ],
    "tarkastus":[
       "examination",
@@ -1379,7 +1379,7 @@
       "tariff"
    ],
    "majoitus":[
-      "accomodation"
+      "accommodation"
    ],
    "varaus":[
       "reservation"
@@ -1646,7 +1646,7 @@
    ],
    "kihlaus":[
       "engagement",
-      "bethrodal"
+      "betrothal"
    ],
    "ilotulitus":[
       "fireworks"
@@ -1691,7 +1691,7 @@
       "couple"
    ],
    "kihlajaiset":[
-      "bethrodal party"
+      "betrothal party"
    ],
    "suhde":[
       "relation",
@@ -1704,7 +1704,7 @@
       "caretaker"
    ],
    "ristiäiset":[
-      "chistening"
+      "christening"
    ],
    "rippi":[
       "confession",

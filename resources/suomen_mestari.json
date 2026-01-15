@@ -71,10 +71,12 @@
         "manager"
     ],
     "esitellä": [
+        "introduce",
         "present"
     ],
     "eteinen": [
-        "hall"
+        "hallway",
+        "entrance hall"
     ],
     "etelä": [
         "south"
@@ -454,7 +456,7 @@
         "size"
     ],
     "kollega": [
-        "coleague"
+        "colleague"
     ],
     "kopiokone": [
         "copier"
@@ -541,7 +543,8 @@
         "department"
     ],
     "hoitaja": [
-        "keeper"
+        "caretaker",
+        "nurse"
     ],
     "lastenhuone": [
         "nursery"
@@ -640,7 +643,7 @@
         "leave"
     ],
     "läksiäiset": [
-        "farwell party"
+        "farewell party"
     ],
     "lämmin": [
         "warm"
@@ -1709,13 +1712,13 @@
         "anxious"
     ],
     "ahdistus": [
-        "anxious"
+        "anxiety"
     ],
     "ahkera": [
         "hard-working"
     ],
     "ahven": [
-        "pike"
+        "perch"
     ],
     "aiemmin": [
         "earlier"
@@ -2004,7 +2007,8 @@
         "specially"
     ],
     "etsiä": [
-        "search from"
+        "search",
+        "look for"
     ],
     "etukoodi": [
         "access code"
@@ -2030,7 +2034,7 @@
     "grillata": [
         "barbecue"
     ],
-    "hastaattelu": [
+    "haastattelu": [
         "interview"
     ],
     "hai": [
@@ -2778,7 +2782,7 @@
         "comment"
     ],
     "konditoria": [
-        "pastisserie",
+        "patisserie",
         "confectionery"
     ],
     "kone": [
@@ -3239,7 +3243,7 @@
         "taste"
     ],
     "majoitus": [
-        "accomodation"
+        "accommodation"
     ],
     "makoilla": [
         "lay down"
@@ -3347,7 +3351,7 @@
         "crazy"
     ],
     "mielulten": [
-        "preferrably"
+        "preferably"
     ],
     "miettiä": [
         "think"
@@ -3693,7 +3697,7 @@
     ],
     "perustaa": [
         "found",
-        "stablish",
+        "establish",
         "constitute"
     ],
     "peruttu": [
@@ -4983,7 +4987,7 @@
         "just"
     ],
     "ääntäminen": [
-        "pronounciation"
+        "pronunciation"
     ],
     "loska": [
         "slush"

@@ -43,6 +43,14 @@ stats <- list2env(
       stats$rightAnswers <- stats$rightAnswers + 1
       stats$wordWeights[[word]] <-
         max(stats$wordWeights[[word]] - 1, 1)
+    },
+    recordAnswer = function(word, correct) {
+      stats$totalAnswers <- stats$totalAnswers + 1
+      if (correct) {
+        stats$registerCorrectAnswer(word)
+      } else {
+        stats$registerMistake(word)
+      }
     }
   )
 )
