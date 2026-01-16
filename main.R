@@ -27,7 +27,7 @@ if (parsedArgs$reverse) {
 }
 
 stats <- new_stats()
-loadWordWeights(serializedWordWeightsFile, wordsMap, stats)
+stats <- loadWordWeights(serializedWordWeightsFile, wordsMap, stats)
 
 sorted <- sortWordMapAndWeights(wordsMap, stats$wordWeights)
 wordsMap <- sorted$wordsMap

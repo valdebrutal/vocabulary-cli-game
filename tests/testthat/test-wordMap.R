@@ -1,8 +1,8 @@
 test_that("loadWordWeights initializes weights to 1 when no cache exists", {
-  stats <- list2env(list(wordWeights = list()))
+  stats <- new_stats()
   wordsMap <- list("alpha" = c("A"), "beta" = c("B"))
 
-  loadWordWeights("nonexistent_cache.rds", wordsMap, stats)
+  stats <- loadWordWeights("nonexistent_cache.rds", wordsMap, stats)
 
   expect_length(stats$wordWeights, 2)
   expect_equal(stats$wordWeights[["alpha"]], 1)
@@ -10,7 +10,7 @@ test_that("loadWordWeights initializes weights to 1 when no cache exists", {
 })
 
 test_that("loadWordWeights loads weights from cache when it exists", {
-  stats <- list2env(list(wordWeights = list()))
+  stats <- new_stats()
   wordsMap <- list("alpha" = c("A"), "beta" = c("B"))
 
   # Create a cache file
@@ -18,7 +18,7 @@ test_that("loadWordWeights loads weights from cache when it exists", {
   cachedWeights <- list("alpha" = 5, "beta" = 3)
   saveRDS(cachedWeights, cacheFile)
 
-  loadWordWeights(cacheFile, wordsMap, stats)
+  stats <- loadWordWeights(cacheFile, wordsMap, stats)
 
   expect_equal(stats$wordWeights[["alpha"]], 5)
   expect_equal(stats$wordWeights[["beta"]], 3)
@@ -27,7 +27,7 @@ test_that("loadWordWeights loads weights from cache when it exists", {
 })
 
 test_that("loadWordWeights removes stale weights from cache", {
-  stats <- list2env(list(wordWeights = list()))
+  stats <- new_stats()
   wordsMap <- list("alpha" = c("A"), "beta" = c("B"))
 
   # Cache contains an extra word "gamma" that's not in wordsMap
@@ -35,7 +35,7 @@ test_that("loadWordWeights removes stale weights from cache", {
   cachedWeights <- list("alpha" = 5, "beta" = 3, "gamma" = 10)
   saveRDS(cachedWeights, cacheFile)
 
-  loadWordWeights(cacheFile, wordsMap, stats)
+  stats <- loadWordWeights(cacheFile, wordsMap, stats)
 
   expect_length(stats$wordWeights, 2)
   expect_true("alpha" %in% names(stats$wordWeights))
@@ -46,7 +46,7 @@ test_that("loadWordWeights removes stale weights from cache", {
 })
 
 test_that("loadWordWeights adds new words with weight 1", {
-  stats <- list2env(list(wordWeights = list()))
+  stats <- new_stats()
   wordsMap <- list("alpha" = c("A"), "beta" = c("B"), "gamma" = c("C"))
 
   # Cache only has alpha and beta
@@ -54,7 +54,7 @@ test_that("loadWordWeights adds new words with weight 1", {
   cachedWeights <- list("alpha" = 5, "beta" = 3)
   saveRDS(cachedWeights, cacheFile)
 
-  loadWordWeights(cacheFile, wordsMap, stats)
+  stats <- loadWordWeights(cacheFile, wordsMap, stats)
 
   expect_length(stats$wordWeights, 3)
   expect_equal(stats$wordWeights[["alpha"]], 5)
@@ -65,7 +65,7 @@ test_that("loadWordWeights adds new words with weight 1", {
 })
 
 test_that("loadWordWeights handles cache with completely different words", {
-  stats <- list2env(list(wordWeights = list()))
+  stats <- new_stats()
   wordsMap <- list("delta" = c("D"), "epsilon" = c("E"))
 
   # Cache has completely different words
@@ -73,7 +73,7 @@ test_that("loadWordWeights handles cache with completely different words", {
   cachedWeights <- list("alpha" = 5, "beta" = 3)
   saveRDS(cachedWeights, cacheFile)
 
-  loadWordWeights(cacheFile, wordsMap, stats)
+  stats <- loadWordWeights(cacheFile, wordsMap, stats)
 
   expect_length(stats$wordWeights, 2)
   expect_equal(stats$wordWeights[["delta"]], 1)

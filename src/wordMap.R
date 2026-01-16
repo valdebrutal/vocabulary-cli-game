@@ -29,6 +29,8 @@ loadWordWeights <-
         1
       })
     }
+    
+    stats
   }
 
 reverseWordMap <- function(wordMap) {
